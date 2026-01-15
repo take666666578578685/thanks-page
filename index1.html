@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信完了 | Thank You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* チェックマークのアニメーション */
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #10B981; /* Tailwind emerald-500 */
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            margin: 0 auto 20px;
+            box-shadow: inset 0px 0px 0px #10B981;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 50px #10B981;
+            }
+        }
+
+        /* フェードインアニメーション */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .delay-100 { animation-delay: 0.2s; }
+        .delay-200 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+    <!-- 背景装飾 (オプション) -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div class="absolute top-[-10%] right-[-5%] w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <!-- コンテンツカード -->
+    <main class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-8 md:p-12 text-center relative z-10 fade-in-up">
+        
+        <!-- アニメーションチェックマーク -->
+        <div class="mb-6">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+
+        <!-- メインテキスト -->
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 fade-in-up delay-100">
+            送信が完了しました
+        </h1>
+        
+        <p class="text-emerald-600 font-medium mb-6 fade-in-up delay-100 tracking-wide">
+            THANK YOU FOR CONTACTING US
+        </p>
+
+        <!-- サブテキスト -->
+        <div class="text-gray-600 mb-8 leading-relaxed text-sm md:text-base fade-in-up delay-200">
+            <p>お問い合わせいただきありがとうございます。</p>
+            <p>ご入力いただいた内容は確認の上、<br class="md:hidden">担当者より通常3営業日以内にご連絡いたします。</p>
+            <p class="mt-4 text-xs text-gray-400">※ 自動返信メールをお送りしておりますのでご確認ください。</p>
+        </div>
+
+        <!-- ボタンエリア -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-200">
+            <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-emerald-500 text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:bg-emerald-600 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2">
+                <span class="mr-2">トップページへ戻る</span>
+                <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </a>
+        </div>
+
+        <!-- SNSリンク (オプション) -->
+        <div class="mt-10 pt-6 border-t border-gray-100 fade-in-up delay-200">
+            <p class="text-xs text-gray-400 mb-4">最新情報をチェック</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-[#1DA1F2] transition-colors duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#C13584] transition-colors duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#4267B2] transition-colors duration-300">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
